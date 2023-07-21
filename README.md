@@ -17,13 +17,19 @@
 ```sql
 ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
+
 1.6. По ссылке https://downloads.mysql.com/docs/sakila-db.zip скачайте дамп базы данных.
+
 1.7. Восстановите дамп в базу данных.
+
 1.8. При работе в IDE сформируйте ER-диаграмму получившейся базы данных. При работе в командной строке используйте команду для получения всех таблиц базы данных. (скриншот)
 
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
+
 ### Ответ 1
-Решение по пунктам
+
+Решение по пунктам:
+
 1.2. Создайте учётную запись sys_temp. 
 ```sql
 create user 'sys_temp'@'localhost' IDENTIFIED BY 'pass';
@@ -31,7 +37,7 @@ create user 'sys_temp'@'localhost' IDENTIFIED BY 'pass';
 
 1.3. Выполните запрос на получение списка пользователей в базе данных. (скриншот)
 
-![12-2-1](./hw-12-2/12-2-1.png)
+![1-1](./12.2-1-001.jpg)
 
 1.4. Дайте все права для пользователя sys_temp. 
 
@@ -41,7 +47,7 @@ FLUSH PRIVILEGES;
 ```
 1.5. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
 
-![12-2-2](./hw-12-2/12-2-2.png)
+![1-2](./12.2-1-002.jpg)
 
 1.6. Переподключитесь к базе данных от имени sys_temp.
 
@@ -57,7 +63,7 @@ ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
 
-![12-2-3](./hw-12-2/12-2-3.png)
+![1-3](./12.2-1-003.jpg)
 
 ---
 
@@ -68,5 +74,25 @@ ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 customer         | customer_id
 ```
 ### Ответ 2
+
+```
+Название таблицы | Название первичного ключа
+language         | language_id
+film             | film_id
+category         | category_id
+film_category    | film_id; category_id
+actor            | actor_id
+film_actor       | actor_id; film_id
+film_text        | film_id
+inventory        | inventory_id
+customer         | customer_id
+rental           | rental_id
+payment          | payment_id
+store            | store_id
+staff            | staff_id
+address          | adress_id
+city             | city_id
+country          | country_id
+```
 
 ---
